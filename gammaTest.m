@@ -60,13 +60,6 @@ screenNumber = max(screens);
 white = WhiteIndex(screenNumber);
 black = BlackIndex(screenNumber);
 
-% Do a simply calculation to calculate the luminance value for grey. This
-% will be half the luminace values for white
-%grey = white / 2;
-
-% Call the color correcting function before opening a window.
-%PsychImaging('AddTask', 'FinalFormatting', 'DisplayColorCorrection', 'SimpleGamma');
-
 if correction ==1
     %Load the gamma table of the experiment screen previously retrieved from
     %the photometer. 
