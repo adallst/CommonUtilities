@@ -6,12 +6,12 @@
 
 % Name the file you want to save for gamma correction, put setup name and
 % date
-gammaName = 'PTBGammaCorrectGold20190408';
+gammaName = 'PTBGammaCorrectTest20190724';
 %Indicate if using Mac or Windows
 OS = 'Windows'; %'Mac' or 'Windows'
 % Length of time and number of frames we will use for each drawing test
 numSecs = 1;
-numFrames = round(numSecs / ifi);
+
 waitframes = 1;
 
 %Number of luminances we get.
@@ -30,7 +30,7 @@ if exist('correction') ==0
     elseif strcmpi(OS, 'Windows')
         %For Windows, check which com the luminance sensor
         % is connected to and manually enter it here.
-        optiCAL = ['COM10']; 
+        optiCAL = ['COM5']; 
     end
     
 
@@ -39,7 +39,7 @@ if exist('correction') ==0
 
 end
 
-%Skip PTB calibration.
+% %Skip PTB calibration.
 Screen('Preference', 'SkipSyncTests', 1);
 
 % Here we call some default settings for setting up Psychtoolbox
@@ -72,6 +72,8 @@ end
 
 % Measure the vertical refresh rate of the monitor
 ifi = Screen('GetFlipInterval', window);
+
+numFrames = round(numSecs / ifi);
 
 % Retreive the maximum priority number
 topPriorityLevel = MaxPriority(window);
